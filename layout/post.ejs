@@ -1,0 +1,51 @@
+<article class="cm9 c9 p9 m12">
+    <% if (page.headimg) { %>
+    <div class="headimg card">
+        <img src="<%= page.headimg %>">
+    </div>
+    <% } %>
+    <div class="card main">
+        <div class="title"><h1><%= page.title %></h1></div>
+        <div class="info">
+            <div class="metas">
+                <%
+                matels = {
+                    'date': `<i class="${theme.article.meta.date.icon}"> <span>${date(page.date, config.date_format + " " + config.time_format)}</span></i>`,
+                    'updated': `<i class="${theme.article.meta.updated.icon}"> <span>${date(page.updated, config.date_format + " " + config.time_format)}</span></i>`,
+                    'author': `<a href="${theme.article.meta.author.url}"><span>${theme.article.meta.author.name}</span></a>`
+                }
+                        for (pmeta in theme.article.top_meta) { %>
+                    <span class="meta"><%- matels[theme.article.top_meta[pmeta]] %></span>
+                <% } %>
+            </div>
+            <hr style="border-color: #ddd">
+            <% if (page.authors) {%>
+            <div class="authors" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+">
+            <% for (i in page.authors) { %>
+            <a class="user-card" target="_blank" href="<%=page.authors[i].url||''%>" title="<%= page.authors[i].name %>">
+                                <img class="avatar" height="60" width="60" src="<%=page.authors[i].avatar%>">
+                                <div class="info"><p class="name"><%= page.authors[i].name.slice(0, 6) %></p>
+                            <p class="introduction"><%= page.authors[i].type.slice(0, 8) %></p>
+                        </div>
+            </a>
+            <%}%>
+            </div>
+          
+            <%}%>
+        </div>
+        <% if (theme.plugins.aiSummary.enable){ %>
+            <%- partial('_plugins/ai-summary.ejs') %>
+        <%}%>
+        <div class="content" id="post">
+            <%-page.content%>
+        </div>
+    </div>
+    <%- partial('_partial/share') %>
+    <div class="card comments">
+        <%- partial('_plugins/comments/main') %>
+    </div>
+</article>

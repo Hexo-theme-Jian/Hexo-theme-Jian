@@ -1,0 +1,35 @@
+<!--<div class="rigtmenu card"
+     style="min-width: 135px;min-height: 50px;position: fixed;display: none;transition: all 0s;z-index: 999999999999;flex-direction: column;padding: 5px;"
+     id="menu">
+    <div class="btn color-white-full" style="margin: 1px;padding: .3rem .5rem;font-size: 16px;
+    font-weight: 500;">
+        hihi
+    </div>
+    <div class="btn color-white-full" style="margin: 1px;padding: .3rem .5rem;font-size: 16px;
+    font-weight: 500;">
+        hihi
+    </div>
+    <script>
+        Jian.onload.add(function () {
+            const menu = document.getElementById('menu')
+            document.oncontextmenu = function (e) {
+                var clintX = e.clientX;  //ev获取的只是屏幕可视范围的x,y值
+                var clintY = e.clientY;
+                menu.style.left = clintX + 'px';
+                menu.style.top = clintY + 'px';
+                menu.style.display = 'flex';
+                if (menu.offsetLeft + menu.offsetWidth > document.documentElement.clientWidth) {
+                    menu.style.left = (document.documentElement.clientWidth - menu.offsetWidth - 8) + 'px';
+                }
+                if (menu.offsetTop + menu.offsetHeight > document.documentElement.clientHeight) {
+                    menu.style.top = (document.documentElement.clientHeight - menu.offsetHeight - 8) + 'px';
+                }
+                return false;  //阻止鼠标右键菜单出现
+            }
+            document.addEventListener('mousedown', function () {
+                menu.style.display = 'none';
+            });
+        })
+    </script>
+</div>
+-->

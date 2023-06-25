@@ -1,0 +1,25 @@
+body > .msg {
+  width: 300px;
+  position: fixed;
+  z-index: 99999;
+  top: 68px;
+  right: 8px;
+}
+
+body > .msg > div.card > div {
+  padding: 10px;
+  .title {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .text {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  body > .msg {
+    width: calc(100% - 32px) !important;
+    right: 16px;
+  }
+}
