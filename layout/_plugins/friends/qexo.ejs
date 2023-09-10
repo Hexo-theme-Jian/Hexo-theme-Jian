@@ -39,7 +39,7 @@
                             title: '<%= __("plugins.Qexo.friends.msg_title") %>',
                             text: '<%= __("plugins.Qexo.friends.error.load_error") %>',
                             icon: 'fa-solid fa-triangle-exclamation',
-                            icon_color: '#EF4444'
+                            color: 'red'
                         });
                     }
                 })
@@ -49,7 +49,7 @@
                     title: '<%= __("plugins.Qexo.friends.msg_title") %>',
                     text: '<%= __("plugins.Qexo.friends.error.get_error") %>',
                     icon: 'fa-solid fa-triangle-exclamation',
-                    icon_color: '#EF4444'
+                    color: 'red'
                 });
             }
         })
@@ -68,7 +68,7 @@
             if (!name || !website || !logo) {
                 Jian.msg({
                     title: '<%= __("plugins.Qexo.friends.msg_title") %>',
-                    icon_color: '#f5365c',
+                    color: 'red',
                     icon: 'fa-solid fa-triangle-exclamation',
                     msg: '<%= __("plugins.Qexo.friends.error.unfull_error") %>'
                 });
@@ -77,7 +77,7 @@
             if (!/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/.test(website) || !/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/.test(logo)) {
                 Jian.msg({
                     title: '<%= __("plugins.Qexo.friends.msg_title") %>',
-                    icon_color: '#f5365c',
+                    color: 'red',
                     icon: 'fa-solid fa-triangle-exclamation',
                     msg: '<%= __("plugins.Qexo.friends.error.url_error") %>'
                 });
@@ -104,14 +104,14 @@
                         if (res["status"]) {
                             Jian.msg({
                                 title: '<%= __("plugins.Qexo.friends.msg_title") %>',
-                                icon_color: '#2dce89',
+                                color: 'green',
                                 icon: 'fa-solid fa-check',
                                 msg: '<%= __("plugins.Qexo.friends.success.apply") %>'
                             });
                         } else {
                             Jian.msg({
                                 title: '<%= __("plugins.Qexo.friends.msg_title") %>',
-                                icon_color: '#f5365c',
+                                color: 'red',
                                 icon: 'fa-solid fa-triangle-exclamation',
                                 msg: '<%= __("plugins.Qexo.friends.error.unknown_error") %>' + res["msg"]
                             });
@@ -120,7 +120,7 @@
                 } else {
                     Jian.msg({
                                 title: '<%= __("plugins.Qexo.friends.msg_title") %>',
-                                icon_color: '#f5365c',
+                                color: 'red',
                                 icon: 'fa-solid fa-triangle-exclamation',
                                 msg: '<%= __("plugins.Qexo.friends.error.network_error") %>'
                             });

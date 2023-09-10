@@ -6,9 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title><%= ((page.title) ? page.title + ' - ' : '') + config.title %></title>
     <link rel="shortcut icon" href="<%= config.favicon || theme.favicon || '' %>">
-    <%- css('css/style.css') %>
-    <link rel="stylesheet" href="<%=theme.cdn.github_cdn%>/Fgaoxing/blog-cdn@main/grid.css">
-    <%- js('js/app.js') %>
+    <link rel="stylesheet" href="<%=theme.cdn.domain || ""%>/css/style.css">
+    <link rel="stylesheet" href="<%=theme.cdn.github_cdn || ""%>/Hexo-theme-Jian/static/css/grid.css">
+    <script src="<%=theme.cdn.domain%>/js/app.js"></script>
     <%- partial('_partial/meta') %>
     <script>
         Jian.load.css('<%=theme.cdn.npm_cdn%>/@fortawesome/fontawesome-free@v6/css/all.min.css')
@@ -17,7 +17,7 @@
             Memorial();
             lantern();
         });
-        Jian.load.js('<%=theme.cdn.npm_cdn%>/pandown', function () {
+        Jian.load.js('<%=theme.cdn.npm_cdn%>/pandown@1.1.0', function () {
             pandown();
         });
     </script>
@@ -43,7 +43,7 @@
 </head>
 <body>
 <%- partial('_plugins/other/main') %>
-<header class="header" id="header">
+<header class="header card color-<%- theme.color.theme || "blue" %>-full" id="header">
     <div class="blog-logo">
         <a href="<%- url_for() %>" class="logo"><%= config.title %></a>
     </div>

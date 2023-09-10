@@ -1,18 +1,15 @@
 header {
   display: flex;
   align-items: center;
-  background-color: var(--header-bg-color);
   height: 60px;
   z-index: 99999999999999;
-  box-shadow: 0 0 32px 0 var(--shadow);
   margin-bottom: -3px;
-  top: 0;
-  backdrop-filter: blur(4px);
+  top: 16;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 32px);
 
   .blog-logo .logo {
-    color: #AAA;
+    color: #fff;
     font-size: 18px;
     text-decoration: none;
   }
@@ -36,7 +33,7 @@ header {
     .menu-item-link {
       font-size: 17px;
       padding: 5px;
-      color: #AAA;
+      color: #fff;
       text-decoration: none;
     }
   }
@@ -48,4 +45,38 @@ header {
 
 .read .header {
   display: none;
+}
+
+@media (max-width: 672px) {
+  header {
+    .menu {
+      top: 80px;
+      position: fixed;
+      right: 16px;
+      height: min-content;
+      flex-direction: column;
+      width: calc(100% - 32px);;
+      background: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      color: #334155;
+      box-shadow: 0 0 20px 0 #00000014;
+      .menu-item {
+        margin-right: 0;
+        padding: 5px 15px;
+        width: 100%;
+        text-align: center;
+        border-top: .5px solid #e9ecef;
+        .menu-item-link {
+          color: #334155;
+        }
+      }
+    }
+  }
+  .dark .menu {
+    background: #1f2937;
+    .menu-item .menu-item-link {
+      color: #fff
+    }
+  }
 }

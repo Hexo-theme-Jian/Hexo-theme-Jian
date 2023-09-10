@@ -8,6 +8,6 @@ Jian.onload.add(function (){
         dls[i].setAttribute('lazyload',dls[i].src);
         dls[i].src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC"
     }
-    document.addEventListener('scroll', function (){Jian.onload.add(Jian.plugins.lazyload)})
     Jian.plugins.lazyload()
+    document.addEventListener('scroll', Jian.plugins.lazyload)
 });

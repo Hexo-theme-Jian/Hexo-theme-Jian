@@ -7,13 +7,14 @@
 </div>
 <script>
   function ai_summary(){
-fetch("<%- theme.plugins.aiSummary.api %>/?key=<%- theme.plugins.aiSummary.key %>&content=" + (document.title + " " + document.getElementById("post").innerText.replaceAll("\n", " ")).substring(0, 201)).then(function(result) {
-    result.json().then(function(json){
-      document.getElementById("ai-summary").innerHTML=json.summary;
+    Jian.console.debug(`AI摘要插件\nAPI URL: <%- theme.plugins.aiSummary.api %>\nKey: <%- theme.plugins.aiSummary.key %>\n发送的内容: ${(document.title + " " + document.getElementById("post").innerText.replaceAll("\n", " ")).substring(0, 201)}`)
+    fetch("<%- theme.plugins.aiSummary.api %>/?key=<%- theme.plugins.aiSummary.key %>&content=" + (document.title + " " + document.getElementById("post").innerText.replaceAll("\n", " ")).substring(0, 201)).then(function(result) {
+      result.json().then(function(json){
+        document.getElementById("ai-summary").innerHTML=json.summary;
+      }).catch(function(e){
+        document.getElementById("ai-summary").innerHTML="代码出现故障："+e;
+      });
     }).catch(function(e){
-      document.getElementById("ai-summary").innerHTML="代码出现故障："+e;
-    });
-  }).catch(function(e){
       document.getElementById("ai-summary").innerHTML="代码出现故障："+e;
     });
   }
